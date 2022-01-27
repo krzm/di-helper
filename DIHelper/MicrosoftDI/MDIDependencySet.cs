@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace DIHelper.Microsoft.DI;
+namespace DIHelper.MicrosoftDI;
 
 public abstract class MDIDependencySet 
     : DependencySet<IServiceCollection>

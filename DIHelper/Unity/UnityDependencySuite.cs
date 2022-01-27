@@ -1,34 +1,55 @@
 ﻿using Unity;
-using Unity.Injection;
 
 namespace DIHelper.Unity;
 
-public abstract class UnityDependencySuite 
-    : DependencySuite<IUnityContainer>
+public class UnityDependencySuite 
+	: UnityDependencySuiteBase
 {
-    protected UnityDependencySuite(
-        IUnityContainer container)
-            : base(container)
-    {
-    }
+	public UnityDependencySuite(
+		IUnityContainer container)
+			: base(container)
+	{
+	}
 
-    protected void RegisterSet<TProvider>(
-        InjectionConstructor injectionConstructor)
-            where TProvider : IDependencySet 
-        => Container
-            .RegisterSingleton<IDependencySet, TProvider>(
-                typeof(TProvider).Name
-                , injectionConstructor);
+	protected override void RegisterSets()
+	{
+		RegisterContainer();
+		RegisterDatabase();
+		RegisterAppData();
+		RegisterConsoleOutput();
+		RegisterConsoleInput();
+		RegisterUtils();
+		RegisterDataMappings();
+		RegisterValidators();
+		RegisterCommands();
+		RegisterCommandSystem();
+		RegisterProgram();
+	}
 
-    protected void RegisterSet<TProvider>()
-        where TProvider : IDependencySet 
-        => Container
-            .RegisterSingleton<IDependencySet, TProvider>(
-                typeof(TProvider).Name);
+	protected virtual void RegisterContainer() =>
+		Container.RegisterInstance<IUnityContainer>(
+			Container
+			, InstanceLifetime.Singleton);
 
-    protected override List<IDependencySet> GetSets() 
-        => Container.Resolve<List<IDependencySet>>();
+	protected virtual void RegisterDatabase() { }
 
-    public override TType Resolve<TType>()
-        => Container.Resolve<TType>();
+	protected virtual void RegisterAppData() { }
+
+	protected virtual void RegisterConsoleOutput() =>
+		RegisterSet<AppOutput>();
+
+	protected virtual void RegisterConsoleInput() =>
+		RegisterSet<AppInput>();
+
+	protected virtual void RegisterUtils() { }
+
+	protected virtual void RegisterDataMappings() { }
+
+	protected virtual void RegisterValidators() { }
+
+	protected virtual void RegisterCommands() { }
+
+	protected virtual void RegisterCommandSystem() { }
+
+	protected virtual void RegisterProgram() { }
 }

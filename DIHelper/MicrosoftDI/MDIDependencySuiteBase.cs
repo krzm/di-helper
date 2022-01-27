@@ -1,12 +1,13 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace DIHelper.Microsoft.DI;
+namespace DIHelper.MicrosoftDI;
 
-public abstract class MDIDependencySuite : DependencySuite<IServiceCollection>
+public abstract class MDIDependencySuiteBase 
+    : DependencySuite<IServiceCollection>
 {
     private IServiceProvider? serviceProvider;
 
-    protected MDIDependencySuite(
+    protected MDIDependencySuiteBase(
         IServiceCollection container)
             : base(container)
     {
