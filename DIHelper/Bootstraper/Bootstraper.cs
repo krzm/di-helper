@@ -1,6 +1,4 @@
-﻿using DIHelper.Program;
-
-namespace DIHelper.Bootstraper;
+﻿namespace DIHelper;
 
 public class Bootstraper : IBootstraper
 {

@@ -1,4 +1,4 @@
-﻿namespace DIHelper.Program;
+﻿namespace DIHelper;
 
 public interface IAppProgram
 {

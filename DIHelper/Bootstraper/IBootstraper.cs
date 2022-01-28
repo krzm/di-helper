@@ -1,4 +1,4 @@
-﻿namespace DIHelper.Bootstraper;
+﻿namespace DIHelper;
 
 public interface IBootstraper
 {
