@@ -62,7 +62,7 @@ public class AppInput
             , new InjectionConstructor(
                 new object[]
                 {
-                    Container.Resolve<IInput>()
+                    Container.Resolve<ICancelableReadLine>()
                     , Container.Resolve<IOutput>()
                     , Container.Resolve<IValidator>(validatorName)
                 }));
