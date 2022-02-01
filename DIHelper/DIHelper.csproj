@@ -14,10 +14,10 @@
 
 	<ItemGroup>
 		<Reference Include="CLIHelper">
-			<HintPath>..\..\CLIHelper\CLIHelper\bin\Release\net6.0\CLIHelper.dll</HintPath>
+			<HintPath>..\..\build\Build\cli-helper\CLIHelper\CLIHelper.dll</HintPath>
 		</Reference>
 		<Reference Include="CLIReader">
-			<HintPath>..\..\CLIReader\CLIReader\bin\Release\net6.0\CLIReader.dll</HintPath>
+			<HintPath>..\..\build\Build\cli-Reader\CLIReader\CLIReader.dll</HintPath>
 		</Reference>
 	</ItemGroup>
 </Project>
