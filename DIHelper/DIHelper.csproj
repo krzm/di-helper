@@ -14,10 +14,10 @@
 
 	<ItemGroup>
 		<Reference Include="CLIHelper">
-			<HintPath>..\..\build\Build\cli-helper\CLIHelper\CLIHelper.dll</HintPath>
+			<HintPath>..\..\..\Build\cli-helper\CLIHelper\CLIHelper.dll</HintPath>
 		</Reference>
 		<Reference Include="CLIReader">
-			<HintPath>..\..\build\Build\cli-Reader\CLIReader\CLIReader.dll</HintPath>
+			<HintPath>..\..\..\Build\cli-Reader\CLIReader\CLIReader.dll</HintPath>
 		</Reference>
 	</ItemGroup>
 </Project>
