@@ -22,7 +22,7 @@ public class AppOutput
 	private void RegisterOutput()
 	{
 		Container
-			.AddSingleton<IOutput, Output>();
+			.AddSingleton<IOutput, ConsoleOut>();
 	}
 
 	protected virtual void RegisterColumnCalculators() { }

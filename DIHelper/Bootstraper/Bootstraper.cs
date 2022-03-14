@@ -1,4 +1,6 @@
-﻿namespace DIHelper;
+﻿using CLIHelper;
+
+namespace DIHelper;
 
 public class Bootstraper : IBootstraper
 {
