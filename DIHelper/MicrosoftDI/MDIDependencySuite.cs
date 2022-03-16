@@ -2,9 +2,10 @@
 
 namespace DIHelper.MicrosoftDI;
 
-public class MDIDependencySuite : MDIDependencySuiteBase
+public abstract class MDIDependencySuite 
+	: MDIDependencySuiteBase
 {
-	public MDIDependencySuite(
+	protected MDIDependencySuite(
 		IServiceCollection container) :
 			base(container)
 	{

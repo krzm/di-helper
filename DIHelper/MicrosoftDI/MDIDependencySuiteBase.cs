@@ -19,10 +19,12 @@ public abstract class MDIDependencySuiteBase
 
     protected override List<IDependencySet> GetSets()
     {
-        serviceProvider = Container.BuildServiceProvider();
+        serviceProvider = BuildServiceProvider();
         ArgumentNullException.ThrowIfNull(serviceProvider);
         return serviceProvider.GetServices<IDependencySet>().ToList();
     }
+
+    protected abstract IServiceProvider? BuildServiceProvider();
 
     public override TType Resolve<TType>()
     {

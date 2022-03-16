@@ -3,7 +3,7 @@ using Unity;
 
 namespace DIHelper.Unity;
 
-public abstract class AppMappings 
+public abstract class AppMappings<TMapperConfig>
     : UnityDependencySet
 {
     public AppMappings(
