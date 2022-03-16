@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace DIHelper.Tests.Helper;
 
@@ -11,6 +12,7 @@ public class UnityContainerMock : IUnityContainerMock
 		string key
 		, TType instance)
 	{
+		ArgumentNullException.ThrowIfNull(instance);
 		containerMock.Add(key, instance);
 	}
 

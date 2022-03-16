@@ -30,8 +30,7 @@ public class MDIDependencySuite : MDIDependencySuiteBase
 
 	protected virtual void RegisterAppData() { }
 
-	protected virtual void RegisterConsoleOutput()
-		=> RegisterSet<AppOutput>();
+	protected virtual void RegisterConsoleOutput() { }
 
 	protected virtual void RegisterConsoleInput() { }
 

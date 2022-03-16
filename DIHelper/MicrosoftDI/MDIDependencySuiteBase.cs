@@ -27,6 +27,8 @@ public abstract class MDIDependencySuiteBase
     public override TType Resolve<TType>()
     {
         ArgumentNullException.ThrowIfNull(serviceProvider);
-        return serviceProvider.GetService<TType>();
+        var obj = serviceProvider.GetService<TType>();
+        ArgumentNullException.ThrowIfNull(obj);
+        return obj;
     }
 }

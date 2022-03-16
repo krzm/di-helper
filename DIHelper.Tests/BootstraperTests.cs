@@ -12,8 +12,11 @@ public class BootstraperTests
 	{
 		Assert.Throws<ArgumentNullException>(
 			()=> 
-			{ 
-				IBootstraper sut = new Bootstraper(null); 
+			{
+				IBootstraper sut = 
+				#pragma warning disable CS8625
+					new Bootstraper(null);
+				#pragma warning restore CS8625
 			});
 	}
 
@@ -24,7 +27,11 @@ public class BootstraperTests
 			"args"
 			, ()=> 
 			{ 
-				new Bootstraper(new Mock<IDependencySuite>().Object).Boot(null); 
+				new Bootstraper(
+					new Mock<IDependencySuite>().Object)
+				#pragma warning disable CS8625
+						.Boot(null);
+				#pragma warning restore CS8625
 			});
 	}
 

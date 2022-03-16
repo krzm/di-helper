@@ -35,11 +35,9 @@ public class UnityDependencySuite
 
 	protected virtual void RegisterAppData() { }
 
-	protected virtual void RegisterConsoleOutput() =>
-		RegisterSet<AppOutput>();
+	protected virtual void RegisterConsoleOutput() { }
 
-	protected virtual void RegisterConsoleInput() =>
-		RegisterSet<AppInput>();
+	protected virtual void RegisterConsoleInput() { }
 
 	protected virtual void RegisterUtils() { }
 

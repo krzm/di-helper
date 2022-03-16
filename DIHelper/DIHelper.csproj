@@ -8,27 +8,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="AutoMapper" Version="11.0.0" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.10" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
 		<PackageReference Include="Unity" Version="5.11.10" />
 	</ItemGroup>
-
-	<!--Debug refs-->
-	<ItemGroup>
-		<Reference Include="CLIHelper">
-			<HintPath>..\..\cli-helper\CLIHelper\bin\Debug\net6.0\CLIHelper.dll</HintPath>
-		</Reference>
-		<Reference Include="CLIReader">
-			<HintPath>..\..\cli-reader\CLIReader\bin\Debug\net6.0\CLIReader.dll</HintPath>
-		</Reference>
-	</ItemGroup>
-
-	<!--Release refs-->
-	<!-- <ItemGroup>
-		<Reference Include="CLIHelper">
-			<HintPath>..\..\..\Build\cli-helper\CLIHelper\CLIHelper.dll</HintPath>
-		</Reference>
-		<Reference Include="CLIReader">
-			<HintPath>..\..\..\Build\cli-Reader\CLIReader\CLIReader.dll</HintPath>
-		</Reference>
-	</ItemGroup> -->
 </Project>
