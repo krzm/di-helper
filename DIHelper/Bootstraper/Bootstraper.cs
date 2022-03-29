@@ -14,9 +14,7 @@ public class Bootstraper : IBootstraper
 	public void Boot(string[] args)
 	{
 		ArgumentNullException.ThrowIfNull(args);
-
 		dependencySuite.Register();
-		dependencySuite.Resolve<IAppProgram>()
-			.Main(args);
+		dependencySuite.Resolve<IAppProgram>().Main(args);
 	}
 }

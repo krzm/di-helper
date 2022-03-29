@@ -33,4 +33,10 @@ public abstract class MDIDependencySuiteBase
         ArgumentNullException.ThrowIfNull(obj);
         return obj;
     }
+
+    public override void Register()
+    {
+        base.Register();
+        serviceProvider = BuildServiceProvider();
+    }
 }
