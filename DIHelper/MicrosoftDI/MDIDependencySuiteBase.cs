@@ -7,6 +7,8 @@ public abstract class MDIDependencySuiteBase
 {
     private IServiceProvider? serviceProvider;
 
+    public IServiceProvider? ServiceProvider => serviceProvider;
+
     protected MDIDependencySuiteBase(
         IServiceCollection container)
             : base(container)
@@ -38,5 +40,8 @@ public abstract class MDIDependencySuiteBase
     {
         base.Register();
         serviceProvider = BuildServiceProvider();
+        RegisterWithServiceProvider();
     }
+    
+    protected abstract void RegisterWithServiceProvider();
 }
