@@ -1,20 +1,21 @@
 ﻿namespace DIHelper;
 
-public class Bootstraper : IBootstraper
+public class Bootstraper 
+    : BootstraperBase
 {
-	private readonly IDependencySuite dependencySuite;
+	private readonly IDependencySuite suite;
 
 	public Bootstraper(
-		IDependencySuite dependencySuite)
+		IDependencySuite suite)
 	{
-		this.dependencySuite = dependencySuite;
-		ArgumentNullException.ThrowIfNull(this.dependencySuite);
+		this.suite = suite;
+		ArgumentNullException.ThrowIfNull(this.suite);
 	}
 
-	public void Boot(string[] args)
+	public override void Boot(string[] args)
 	{
 		ArgumentNullException.ThrowIfNull(args);
-		dependencySuite.Register();
-		dependencySuite.Resolve<IAppProgram>().Main(args);
+		suite.Register();
+		suite.Resolve<IAppProgram>().Main(args);
 	}
 }
