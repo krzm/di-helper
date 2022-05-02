@@ -13,7 +13,6 @@ public class UnityDependencySuite
 
 	protected override void RegisterSets()
 	{
-		RegisterContainer();
 		RegisterDatabase();
 		RegisterAppData();
 		RegisterConsoleOutput();
@@ -25,11 +24,6 @@ public class UnityDependencySuite
 		RegisterCommandSystem();
 		RegisterProgram();
 	}
-
-	protected virtual void RegisterContainer() =>
-		Container.RegisterInstance<IUnityContainer>(
-			Container
-			, InstanceLifetime.Singleton);
 
 	protected virtual void RegisterDatabase() { }
 
