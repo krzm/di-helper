@@ -4,6 +4,9 @@ public class Bootstraper
     : BootstraperBase
 {
 	private readonly IDependencySuite suite;
+    private IAppProgram? app;
+
+    public override IAppProgram? App => app;
 
 	public Bootstraper(
 		IDependencySuite suite)
@@ -12,10 +15,16 @@ public class Bootstraper
 		ArgumentNullException.ThrowIfNull(this.suite);
 	}
 
-	public override void Boot(string[] args)
+    public override void CreateApp()
+    {
+        suite.Register();
+		app = suite.Resolve<IAppProgram>();
+    }
+
+    public override void RunApp(params string[] args)
 	{
 		ArgumentNullException.ThrowIfNull(args);
-		suite.Register();
-		suite.Resolve<IAppProgram>().Main(args);
+		ArgumentNullException.ThrowIfNull(app);
+        app.Main(args);
 	}
 }

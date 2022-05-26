@@ -30,7 +30,7 @@ public class BootstraperTests
 				new Bootstraper(
 					new Mock<IDependencySuite>().Object)
 				#pragma warning disable CS8625
-						.Boot(null);
+						.RunApp(null);
 				#pragma warning restore CS8625
 			});
 	}
@@ -45,7 +45,8 @@ public class BootstraperTests
 		suiteMock.Setup(m => m.Resolve<IAppProgram>()).Returns(programMock.Object);
 		IBootstraper sut = new Bootstraper(suiteMock.Object); 
 		
-		sut.Boot(Array.Empty<string>());
+        sut.CreateApp();
+		sut.RunApp(Array.Empty<string>());
 
 		suiteMock.Verify(m => m.Register(), Times.Once());
 		suiteMock.Verify(m => m.Resolve<IAppProgram>(), Times.Once());

@@ -1,9 +1,12 @@
 namespace DIHelper;
 
 public class MultiBootstraper
-    : BootstraperBase, IMultiBootstraper
+    : IMultiBootstraper
 {
     private readonly IDictionary<SuiteFilter, IDependencySuite> suites;
+    private IAppProgram? app;
+
+    public IAppProgram? App => app;
 
     public MultiBootstraper(
         IDictionary<SuiteFilter, IDependencySuite> suites)
@@ -12,23 +15,23 @@ public class MultiBootstraper
         ArgumentNullException.ThrowIfNull(this.suites);
     }
 
-    public void Boot(
-        string[] args
-        , SuiteFilter filter)
+    public void CreateApp(SuiteFilter filter)
     {
         var componentSuites = suites.Where(s => s.Key.IsComponentSuite == filter.IsComponentSuite);
         foreach (var suite in componentSuites)
         {
             suite.Value.Register();
         }
-    }
-
-    public override void Boot(string[] args)
-    {
-        ArgumentNullException.ThrowIfNull(args);
         var mainSuite = suites.FirstOrDefault(
             s => s.Key.IsAppSuite).Value;
         mainSuite.Register();
-        mainSuite.Resolve<IAppProgram>().Main(args);
+        app = mainSuite.Resolve<IAppProgram>();
+    }
+
+    public void RunApp(string[] args)
+    {
+        ArgumentNullException.ThrowIfNull(args);
+        ArgumentNullException.ThrowIfNull(app);
+        app.Main(args);
     }
 }

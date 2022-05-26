@@ -2,5 +2,5 @@
 
 public interface IAppProgram
 {
-	int Main(string[] args);
+	int Main(params string[] args);
 }

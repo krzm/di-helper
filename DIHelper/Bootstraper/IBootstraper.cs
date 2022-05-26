@@ -2,5 +2,9 @@
 
 public interface IBootstraper
 {
-	void Boot(string[] args);
+    public IAppProgram? App { get; }
+
+    void CreateApp();
+
+	void RunApp(params string[] args);
 }
