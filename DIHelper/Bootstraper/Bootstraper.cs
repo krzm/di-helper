@@ -6,8 +6,6 @@ public class Bootstraper
 	private readonly IDependencySuite suite;
     private IAppProgram? app;
 
-    public override IAppProgram? App => app;
-
 	public Bootstraper(
 		IDependencySuite suite)
 	{
@@ -19,6 +17,7 @@ public class Bootstraper
     {
         suite.Register();
 		app = suite.Resolve<IAppProgram>();
+        app.Setup();
     }
 
     public override void RunApp(params string[] args)

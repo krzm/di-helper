@@ -3,4 +3,6 @@
 public interface IAppProgram
 {
 	int Main(params string[] args);
+
+    void Setup();
 }
