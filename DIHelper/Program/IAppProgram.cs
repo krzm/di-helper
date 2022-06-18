@@ -1,8 +1,7 @@
 ﻿namespace DIHelper;
 
 public interface IAppProgram
+    : IMainProgram
 {
-	int Main(params string[] args);
-
     void Setup();
 }
