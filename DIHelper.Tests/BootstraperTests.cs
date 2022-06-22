@@ -1,5 +1,4 @@
 using System;
-using CLIHelper;
 using Moq;
 using Xunit;
 
