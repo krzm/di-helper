@@ -10,4 +10,9 @@ public abstract class UnityDependencySet
         : base(container)
     {
     }
+
+    public TType Resolve<TType>(string key)
+    {
+        return Container.Resolve<TType>(key);
+    }
 }
