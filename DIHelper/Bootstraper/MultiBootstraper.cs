@@ -15,17 +15,25 @@ public class MultiBootstraper
         ArgumentNullException.ThrowIfNull(this.suites);
     }
 
-    public void CreateApp(SuiteFilter filter)
+    public void SetupLibs(SuiteFilter filter)
     {
         var componentSuites = suites.Where(s => s.Key.IsComponentSuite == filter.IsComponentSuite);
+        ArgumentNullException.ThrowIfNull(componentSuites);
         foreach (var suite in componentSuites)
         {
             suite.Value.Register();
         }
+    }
+
+    public void SetupApp(SuiteFilter filter)
+    {
         var mainSuite = suites.FirstOrDefault(
             s => s.Key.IsAppSuite).Value;
+        ArgumentNullException.ThrowIfNull(mainSuite);
         mainSuite.Register();
         app = mainSuite.Resolve<IAppProgram>();
+        app.Setup();
+        ArgumentNullException.ThrowIfNull(app);
     }
 
     public void RunApp(string[] args)
